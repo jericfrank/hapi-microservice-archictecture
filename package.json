@@ -1,0 +1,28 @@
+{
+  "name": "hapi-mircoservice-architecture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon index",
+    "lint": "./node_modules/.bin/eslint ./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeric Frank Sasil",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^5.1.0",
+    "bunyan": "^1.8.10",
+    "co": "^4.6.0",
+    "dotenv": "^4.0.0",
+    "handlebars": "^4.0.10",
+    "hapi": "^16.4.2",
+    "vision": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "hapi-swagger": "^7.7.0",
+    "inert": "^4.2.0",
+    "nodemon": "^1.11.0"
+  }
+}
