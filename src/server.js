@@ -4,6 +4,7 @@ const Hapi = require('hapi');
 
 const log    = require( './logger' );
 const config = require( './config' );
+const models = require( './models' );
 
 // Create a server with a host and port
 const server = new Hapi.Server();
@@ -46,6 +47,7 @@ if ( process.env.NODE_ENV !== 'production' ) {
 // Start the server
 server.register( [
 	{ 'register' : require( './gateways/users' ) },
+	{ 'register' : require( './gateways/books' ) },
 	], err => {
 		if ( err ) {
 			log.fatal( err, 'Unable to register plugins' );
@@ -61,5 +63,11 @@ server.register( [
 			log.info( `Sample Project is running at: ${server.info.uri}` );
 		} );
 } );
+
+models.sequelize.sync().then( () => {
+	// Register plugins
+	
+} )
+.catch( err => log.fatal( err ) );
 
 module.exports = server;
