@@ -6,6 +6,7 @@ const joi  = require( 'joi' );
 const bookService = use( 'services/books/' );
 const log         = use( 'logger' );
 const generoute   = use( 'utils/generoute' );
+const genereply   = use( 'utils/genereply' );
 
 module.exports = {
 	'method' : 'POST',
@@ -48,10 +49,7 @@ module.exports = {
 				const data     = request.payload;
 				const response = yield bookService.create( data );
 
-				return reply({
-					'statusCode' : 201,
-					'data'       : response
-				}).code( 201 );
+				return reply( genereply.created( response ) ).code( 201 );
 			} catch ( error ) {
 				log.fatal( error );
 				return reply( boom.badImplementation() );
