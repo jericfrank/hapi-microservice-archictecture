@@ -4,7 +4,8 @@ exports.register = ( server, options, next ) => {
 	server.route( [
 		require( './get-all' ),
 		require( './create' ),
-		require( './delete-by-id' )
+		require( './delete-by-id' ),
+		require( './update-by-id' )
 	] );
 
 	next();
